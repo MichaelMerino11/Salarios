@@ -121,6 +121,40 @@ void Salarios::on_actionGuardar_triggered()
 
 }
 
+void Salarios::on_actionAbrir_triggered()
+{
+    QString salarios = QFileDialog::getOpenFileName(this,
+                                                    "Leer calculos de salarios",
+                                                    QDir::home().absolutePath(),
+                                                    "Aplicacion Salarios (*.sal)");
+    QFile archivo(salarios);
+    int tam = archivo.size();
+    if (tam > 0){
+        QMessageBox messageBox(this);
+        messageBox.addButton(tr("Conservar"), QMessageBox::AcceptRole);
+        messageBox.addButton(tr("Descartar"), QMessageBox::RejectRole);
+        messageBox.setText("Desea conservar los datos calculados?");
+        int ret = messageBox.exec();
+        if(ret == QMessageBox::Accepted)
+            ui->outCalculos->clear();
+        QTextStream in(&archivo);
+        if(archivo.open(QFile::ReadOnly)){
+            ui->outCalculos->appendPlainText(qPrintable(in.readAll()));
+        }else {
+            // Mensaje de error
+            QMessageBox::warning(this,
+                                 "Leer archivo",
+                                 "No se puede acceder al archivo para leer los datos.");
+        }
+        ui->statusbar->showMessage("Se ha cargado el archivo correctamente.",3000);
+        archivo.close();
+    } else {
+        QMessageBox::warning(this,
+                             "Abrir Archivo",
+                             "Error el archivo no contiene datos");
+    }
+
+}
 
 void Salarios::on_actionAcerca_de_triggered()
 {
