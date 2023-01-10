@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Iconos/Bar_Icons/abrir-esquema-de-carpeta.png</file>
+        <file>Iconos/Bar_Icons/archivo-nuevo.png</file>
+        <file>Iconos/Bar_Icons/calculadora.png</file>
+        <file>Iconos/Bar_Icons/disquete.png</file>
+        <file>Iconos/Bar_Icons/dom.png</file>
+        <file>Iconos/Bar_Icons/noche-nublada.png</file>
+        <file>Iconos/Bar_Icons/pregunta.png</file>
+        <file>Iconos/Bar_Icons/puesta-del-sol.png</file>
+        <file>Iconos/Bar_Icons/salida-de-emergencia.png</file>
+        <file>Iconos/Main_Icon/lucro.png</file>
+    </qresource>
+</RCC>
